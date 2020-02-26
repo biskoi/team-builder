@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Form from './Form.js';
 import MemberList from './MemberList';
@@ -14,6 +13,7 @@ function App() {
 
   const addMember = person => {
     const newMember = {
+      id: Date.now(),
       name: person.name,
       email: person.email,
       role: person.role

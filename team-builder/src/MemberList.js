@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 const Member = styled.div`
 border: solid black 2px;
+margin: 2%;
 `;
 
 export default function MemberList(props) {
