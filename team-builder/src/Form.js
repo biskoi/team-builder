@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import styled from 'styled-components';
 
 const SForm = styled.form`
@@ -11,17 +11,18 @@ padding-bottom: 3%;
 
 export default function Form(props) {
 
+    
     const [member, setMember] = useState({
         name: '',
         email: '',
         role: ''
     });
-
+    
     const textHandler = e => {
         setMember({...member, [e.target.name]: e.target.value});
         console.log(member);
     }
-
+    
     const submitHandler = e => {
         e.preventDefault();
         props.addMember(member);
@@ -32,8 +33,11 @@ export default function Form(props) {
         });
         console.log(`Submitted ${member.name}`);
     }
-
-
+    
+    useEffect(() => {
+        setMember(props.toEdit);
+    }, [props.toEdit]);
+    
     return (
         <SForm onSubmit = {submitHandler}>
             <p>Add Member</p>

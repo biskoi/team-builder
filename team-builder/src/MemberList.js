@@ -8,6 +8,10 @@ margin: 2%;
 
 export default function MemberList(props) {
 
+    const click = (item) => {
+        props.setEdit(item);
+    }
+
 
     return (
         <div>
@@ -16,6 +20,8 @@ export default function MemberList(props) {
                 <p>{`Name: ${item.name}`}</p>
                 <p>{`Email: ${item.email}`}</p>
                 <p>{`Role: ${item.role}`}</p>
+                <p>{`ID: ${index}`}</p>
+                <button onClick = {() => click(item)}>Edit</button>
                 </Member>
             ))}
         </div>
